@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Person;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Revolution\Google\Sheets\Facades\Sheets;
 
 class PersonController extends Controller
@@ -24,5 +25,16 @@ class PersonController extends Controller
         }
 
         return response()->json(['message' => 'Data fetched and updated successfully'], 200);
+    }
+    public function updateScan(Request $request)
+    {
+        $person = Person::find($request->input('id'));
+        if ($person) {
+            $person->scanned_at = Carbon::now();
+            $person->save();
+            return response()->json(['message' => 'Student scanned successfully!']);
+        } else {
+            return response()->json(['message' => 'Student not found!'], 404);
+        }
     }
 }

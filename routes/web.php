@@ -20,4 +20,5 @@ Route::get('/', function () {
 
 
 Route::get('/fetch-and-store',[PersonController::class, 'fetchAndUpdate']);
+Route::get('/scan',[PersonController::class, 'updateScan']);
 
