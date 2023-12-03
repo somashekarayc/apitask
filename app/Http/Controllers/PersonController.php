@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Person;
+use App\Models\Scan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Revolution\Google\Sheets\Facades\Sheets;
@@ -29,9 +30,11 @@ class PersonController extends Controller
     public function updateScan(Request $request)
     {
         $person = Person::find($request->input('id'));
+        $scan = new Scan;
         if ($person) {
-            $person->scanned_at = Carbon::now();
-            $person->save();
+            $scan->person_id = $person->id;
+            $scan->scanned_at = Carbon::now();
+            $scan->save();
             return response()->json(['message' => 'Student scanned successfully!']);
         } else {
             return response()->json(['message' => 'Student not found!'], 404);
