@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "calm-seeker-291502",
+  "private_key_id": "53c0c3f1eab246fa2ead3120495664e0965e5461",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQD8dEpewTD/1NDg\ngQ6HGlWl3TdIj1RTfPjsXVUntRZOBTlm5x/3XoPMO/f8LLOpPaf3I6YyTMp/R+Ei\nfi1tWXJ/96oNepSXJR+8bsfnPpQjEWTLq8Z9Hx0sD5Hl7vDcbPHiM2ZQN1BCTxPn\nSBre4WTnxpvRnBLBhfMFwbmXDoeFv/fc/XpMNBaLzXjl5aXUKPI4VBnSwJtMMtQP\nG+iUe6/c3GPIWHJrhhBbhHhDuPEPT1ufbbceoGtbB07GYxe9LvCoJSXlihYVa7I/\noQTO4e7QNRfzeH4Vy8q6jFbf43XaTzXsVnP/8pp7YwOBht/1NHCe3/U5f9C2d7Rq\nK0aIFc8FAgMBAAECggEABkjg1xYJIb1LC+O6mFtr+WqV5z0GNOPeEIhMR+ZGrV+M\n68ZiMdbNAicWB9WXDWYHCex9xS/LNLr13FV2zQuWgaAJQDemflLCxP6fBF828d6L\ne1SF5vSA1el3UNmPbnVZ2i88Y0/VNClizfWqEZVb3TdBBslTYDT09VY6yAtpDUfK\n/AJhIb1pN83O5vpGkG8ZhrXSd/dv6TO21RuO3qyUHdA30Ng7LPhsIOM5ECgLWjP7\n7YmXzcI2vx+I/phF3ZwR+7gfulLJXOVYVgZZJFlJtidQPcBqaJBozFWco39sZhkb\numAC1Rdus3sPiFY3SEFG7L7stLR+PsiUiOHXi/KzuwKBgQD/EMb0j5eZ3vzaIm+E\nIXJglFAx+/x25zxnpf0E4gNFQBQbt/1C0/khuuT8DOFc2cg9GOSYCEpe6fTLcyXl\nTEAUOzDrh360BBmlGxkTAggiiuXL5nbf7jsVdZJGy5Kq8j/jOhps88f6dqZxmB9N\nGDxf4qKI42a6mXNy7uEguZI/3wKBgQD9YRBzC7AHbc+ld0DalaiwRKMkXHgPRJ6M\nSp5iDWiF2nlp3ktVsI/59G/KxFvad2Cn0bFQxdaOyB0WBDFHK/sV41OPQ65iWlRy\ncvUg17BJGjvbTNgrEErnhWceu7rNVdFe3AOB0GueYnMiNRM3J0HJBgL7QwCJon8l\nPllhEs89mwKBgQCciJNRK36CdBMBW/jMQiqLkvnUcyzxW9/6TCgHgx02tqigij3n\ncWeHh8dX2B/Gd/Enbct8cjoSHcqZwUUUf8Mjp1/SbAkaORnz9blhrPGJIWz9waZa\nrz2bYdgvkmekeZ8zuEjXbJTh5Ucol48+JQ2IWvIcyFIXWm07r9aB2uEiSQKBgQCx\npuKfpywuqUGTpD9mgtQZcqZoEiVjnxsDBjZyTTBh2UKThfaQCBGKkWXoZzB3xoeQ\nYqfOGEhNJ+Ws0Be07RNIz3CA3FViRC89Z3iTJGdHegtJwWE3IF9EYPZiSAG7glYg\nCmazF+y8yg4rh8cHPpETXxGsFdhEqBg5hrOoKkX/zQKBgGtVd38EjslUSt9KAloD\nIrOgm6lQN1nfYYGigNmrjZl06vRPlxtYA+wJCPoM95QWa4wjYQhm6qoGuxwO/c3i\n1eVSuFotsk6YxBCzaVbeVR40BtJjsU6jdCOcddajr5IRxGhr4ubwoSPouqxZOlwZ\n9J6dFQCibenIXzLiCLmda/dM\n-----END PRIVATE KEY-----\n",
+  "client_email": "laravel-app-service-account@calm-seeker-291502.iam.gserviceaccount.com",
+  "client_id": "102460642501569739009",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/laravel-app-service-account%40calm-seeker-291502.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
