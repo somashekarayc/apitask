@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Concerns\HasRelationships;
 
 class Scan extends Model
 {
     use HasFactory;
+    use HasRelationships;
 
     protected $fillable = ['person_id', 'scanned_at'];
 
@@ -15,4 +17,9 @@ class Scan extends Model
     {
         return ucwords($value);
     }
+
+    public function person()
+{
+    return $this->belongsTo(Person::class);
+}
 }

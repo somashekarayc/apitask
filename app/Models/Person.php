@@ -2,13 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Concerns\HasRelationships;
 
 class Person extends Model
 {
     use HasFactory;
+    use HasRelationships;
 
+    protected $table = 'persons';
     protected $fillable = ['name', 'bus_number'];
 
     protected $casts = [
@@ -19,4 +23,9 @@ class Person extends Model
     {
         return ucwords($value);
     }
+
+    public function scans()
+{
+    return $this->hasMany(Scan::class);
+}
 }

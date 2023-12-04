@@ -6,38 +6,76 @@ use App\Models\Person;
 use App\Models\Scan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+// use Revolution\Google\Sheets\Facades\Sheets;
 use Revolution\Google\Sheets\Facades\Sheets;
+// use Sheets;
 
 class PersonController extends Controller
 {
     public function fetchAndUpdate(Request $request)
     {
-        $sheet = Sheets::spreadsheet(config('google-sheets.spreadsheet_id'))->sheet(config('google-sheets.sheet_name'));
-        $data = $sheet->all();
+        $sheet = Sheets::spreadsheet('1SJx5WXWBElw5D008VpBiTpMABezStyIL7PR1a8Y397w')->sheet('persons')->get();
 
-        foreach ($data as $row) {
-            $person = Person::where('name', $row['name'])->firstOrCreate([
-                'name' => $row['name'],
-                'bus_number' => $row['bus_number'],
-            ]);
+        $header = $sheet->pull(0);
+        $values = Sheets::collection(header: $header, rows: $sheet);
+        $values->toArray();
 
-            $person->scanned_at = $row['scanned_at'];
-            $person->save();
+        // dd($values);
+        // $data = $sheet->all();
+
+        foreach ($values as $row) {
+            $person = Person::where('id', $row['id'])->first();
+
+            if (!$person) {
+                $person = new Person([
+                    'name' => $row['name'],
+                    'bus_number' => $row['bus_number'],
+                ]);
+
+                $person->save();
+            }
         }
 
         return response()->json(['message' => 'Data fetched and updated successfully'], 200);
     }
     public function updateScan(Request $request)
     {
-        $person = Person::find($request->input('id'));
-        $scan = new Scan;
-        if ($person) {
-            $scan->person_id = $person->id;
-            $scan->scanned_at = Carbon::now();
-            $scan->save();
-            return response()->json(['message' => 'Student scanned successfully!']);
-        } else {
-            return response()->json(['message' => 'Student not found!'], 404);
+        $sheet = Sheets::spreadsheet('1SJx5WXWBElw5D008VpBiTpMABezStyIL7PR1a8Y397w')->sheet('scans')->get();
+        $header = $sheet->pull(0);
+        $values = Sheets::collection(header: $header, rows: $sheet);
+        $values->toArray();
+
+        $scannedPersons = 0;
+        $missingPersons = 0;
+
+        foreach ($values as $row) {
+            $person = Person::find($row['person_id']);
+            $scan = new Scan();
+            if ($person) {
+                $scan->person_id = $person->id;
+                $scan->scanned_at = Carbon::now();
+                $scan->save();
+                $scannedPersons++;
+                // return response()->json(['message' => 'Student scanned successfully!']);
+            } else {
+                $missingPersons++;
+                // return response()->json(['message' => 'Student not found!'], 404);
+
+            }
         }
+
+        return response()->json([
+            'message' => 'Persons scan updated successfully!',
+            'total_scanned_persons' => $scannedPersons,
+            'total_missing_persons' => $missingPersons,
+        ]);
+    }
+
+
+    public function fetchMissingPersons()
+    {
+        $missingPersons = Person::whereDoesntHave('scans')->get();
+
+        return response()->json($missingPersons);
     }
 }
