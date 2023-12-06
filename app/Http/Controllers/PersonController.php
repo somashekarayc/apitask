@@ -78,4 +78,17 @@ class PersonController extends Controller
 
         return response()->json($missingPersons);
     }
+
+
+
+    public function index()
+    {
+    }
+    public function store(Request $request)
+    {
+    }
+    public function show($id)
+    {
+    }
 }
+
