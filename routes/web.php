@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PersonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +18,5 @@ Route::get('/', function () {
 });
 
 
-Route::get('/fetch-and-store',[PersonController::class, 'fetchAndUpdate']);
-Route::get('/scantwo',[PersonController::class, 'updateScan']);
 
-// Route::get('/scantwo', function () {
-//     return 'judfhfh';
-// });
-
-
-Route::get('/missing',[PersonController::class, 'fetchMissingPersons']);
 
